@@ -1,0 +1,58 @@
+﻿@model GimnasioTitanes.Models.venta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>venta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.planes.plan_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.planes.plan_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.usu_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.usu_nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_venta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

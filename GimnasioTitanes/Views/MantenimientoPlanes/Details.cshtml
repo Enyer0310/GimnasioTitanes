@@ -1,0 +1,34 @@
+﻿@model GimnasioTitanes.Models.planes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>planes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.plan_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plan_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plan_precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plan_precio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_planes }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

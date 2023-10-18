@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarPuestos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarPuestosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarPuestosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdPuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdPuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IdPuestoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdSuplemento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdSuplementoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IdSuplementoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdproveedorMaquinas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdproveedorMaquinasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IdproveedorMaquinasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="proveedorSuplemento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="proveedorSuplementoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proveedorSuplementoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarPuestosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarPuestos" />
+  </wsdl:message>
+  <wsdl:message name="ListarPuestosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarPuestosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdPuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:IdPuesto" />
+  </wsdl:message>
+  <wsdl:message name="IdPuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:IdPuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdSuplementoSoapIn">
+    <wsdl:part name="parameters" element="tns:IdSuplemento" />
+  </wsdl:message>
+  <wsdl:message name="IdSuplementoSoapOut">
+    <wsdl:part name="parameters" element="tns:IdSuplementoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdproveedorMaquinasSoapIn">
+    <wsdl:part name="parameters" element="tns:IdproveedorMaquinas" />
+  </wsdl:message>
+  <wsdl:message name="IdproveedorMaquinasSoapOut">
+    <wsdl:part name="parameters" element="tns:IdproveedorMaquinasResponse" />
+  </wsdl:message>
+  <wsdl:message name="proveedorSuplementoSoapIn">
+    <wsdl:part name="parameters" element="tns:proveedorSuplemento" />
+  </wsdl:message>
+  <wsdl:message name="proveedorSuplementoSoapOut">
+    <wsdl:part name="parameters" element="tns:proveedorSuplementoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataBase_GYMSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPuestos">
+      <wsdl:input message="tns:ListarPuestosSoapIn" />
+      <wsdl:output message="tns:ListarPuestosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IdPuesto">
+      <wsdl:input message="tns:IdPuestoSoapIn" />
+      <wsdl:output message="tns:IdPuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IdSuplemento">
+      <wsdl:input message="tns:IdSuplementoSoapIn" />
+      <wsdl:output message="tns:IdSuplementoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IdproveedorMaquinas">
+      <wsdl:input message="tns:IdproveedorMaquinasSoapIn" />
+      <wsdl:output message="tns:IdproveedorMaquinasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveedorSuplemento">
+      <wsdl:input message="tns:proveedorSuplementoSoapIn" />
+      <wsdl:output message="tns:proveedorSuplementoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataBase_GYMSoap" type="tns:DataBase_GYMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPuestos">
+      <soap:operation soapAction="http://tempuri.org/ListarPuestos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdPuesto">
+      <soap:operation soapAction="http://tempuri.org/IdPuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdSuplemento">
+      <soap:operation soapAction="http://tempuri.org/IdSuplemento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdproveedorMaquinas">
+      <soap:operation soapAction="http://tempuri.org/IdproveedorMaquinas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveedorSuplemento">
+      <soap:operation soapAction="http://tempuri.org/proveedorSuplemento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataBase_GYMSoap12" type="tns:DataBase_GYMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPuestos">
+      <soap12:operation soapAction="http://tempuri.org/ListarPuestos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdPuesto">
+      <soap12:operation soapAction="http://tempuri.org/IdPuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdSuplemento">
+      <soap12:operation soapAction="http://tempuri.org/IdSuplemento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdproveedorMaquinas">
+      <soap12:operation soapAction="http://tempuri.org/IdproveedorMaquinas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveedorSuplemento">
+      <soap12:operation soapAction="http://tempuri.org/proveedorSuplemento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataBase_GYM">
+    <wsdl:port name="DataBase_GYMSoap" binding="tns:DataBase_GYMSoap">
+      <soap:address location="http://localhost:57951/DataBase_GYM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataBase_GYMSoap12" binding="tns:DataBase_GYMSoap12">
+      <soap12:address location="http://localhost:57951/DataBase_GYM.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

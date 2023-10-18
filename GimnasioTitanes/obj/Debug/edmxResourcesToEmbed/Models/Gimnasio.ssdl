@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_titanesGymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="rut_usuario" />
+    </Key>
+    <Property Name="rut_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="planes">
+    <Key>
+      <PropertyRef Name="id_planes" />
+    </Key>
+    <Property Name="id_planes" Type="int" Nullable="false" />
+    <Property Name="plan_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="plan_precio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="proveedorMaquinas">
+    <Key>
+      <PropertyRef Name="id_proveedorMaquinas" />
+    </Key>
+    <Property Name="id_proveedorMaquinas" Type="int" Nullable="false" />
+    <Property Name="nom_maquina" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="proveedorSuplemento">
+    <Key>
+      <PropertyRef Name="id_proveedorSuplemento" />
+    </Key>
+    <Property Name="id_proveedorSuplemento" Type="int" Nullable="false" />
+    <Property Name="nom_proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="puesto">
+    <Key>
+      <PropertyRef Name="id_puesto" />
+    </Key>
+    <Property Name="id_puesto" Type="int" Nullable="false" />
+    <Property Name="pue_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="suplemento">
+    <Key>
+      <PropertyRef Name="id_suplemento" />
+    </Key>
+    <Property Name="id_suplemento" Type="int" Nullable="false" />
+    <Property Name="nom_suplemento" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="rut_usuario" />
+    </Key>
+    <Property Name="rut_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="usu_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_puesto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="venta">
+    <Key>
+      <PropertyRef Name="id_venta" />
+    </Key>
+    <Property Name="id_venta" Type="int" Nullable="false" />
+    <Property Name="fecha_venta" Type="date" Nullable="false" />
+    <Property Name="rut_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_planes" Type="int" Nullable="false" />
+    <Property Name="cantidad_venta" Type="int" Nullable="false" />
+    <Property Name="valor_venta" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ventaSuplemento">
+    <Key>
+      <PropertyRef Name="id_ventaSuplemento" />
+    </Key>
+    <Property Name="id_ventaSuplemento" Type="int" Nullable="false" />
+    <Property Name="fecha_ventaSuplemto" Type="date" Nullable="false" />
+    <Property Name="rut_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_suplemento" Type="int" Nullable="false" />
+    <Property Name="cantidad_suplemento" Type="int" Nullable="false" />
+    <Property Name="venta_suplemento" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__login__rut_usuar__49C3F6B7">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="login" Type="Self.login" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="rut_usuario" />
+      </Principal>
+      <Dependent Role="login">
+        <PropertyRef Name="rut_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario__id_pues__398D8EEE">
+    <End Role="puesto" Type="Self.puesto" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="puesto">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__venta__id_planes__3F466844">
+    <End Role="planes" Type="Self.planes" Multiplicity="1" />
+    <End Role="venta" Type="Self.venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="planes">
+        <PropertyRef Name="id_planes" />
+      </Principal>
+      <Dependent Role="venta">
+        <PropertyRef Name="id_planes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__venta__rut_usuar__3E52440B">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="venta" Type="Self.venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="rut_usuario" />
+      </Principal>
+      <Dependent Role="venta">
+        <PropertyRef Name="rut_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventaSupl__id_su__44FF419A">
+    <End Role="suplemento" Type="Self.suplemento" Multiplicity="1" />
+    <End Role="ventaSuplemento" Type="Self.ventaSuplemento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="suplemento">
+        <PropertyRef Name="id_suplemento" />
+      </Principal>
+      <Dependent Role="ventaSuplemento">
+        <PropertyRef Name="id_suplemento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventaSupl__rut_u__440B1D61">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="ventaSuplemento" Type="Self.ventaSuplemento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="rut_usuario" />
+      </Principal>
+      <Dependent Role="ventaSuplemento">
+        <PropertyRef Name="rut_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_titanesGymModelStoreContainer">
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="planes" EntityType="Self.planes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proveedorMaquinas" EntityType="Self.proveedorMaquinas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proveedorSuplemento" EntityType="Self.proveedorSuplemento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="puesto" EntityType="Self.puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="suplemento" EntityType="Self.suplemento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="venta" EntityType="Self.venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ventaSuplemento" EntityType="Self.ventaSuplemento" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__login__rut_usuar__49C3F6B7" Association="Self.FK__login__rut_usuar__49C3F6B7">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="login" EntitySet="login" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario__id_pues__398D8EEE" Association="Self.FK__usuario__id_pues__398D8EEE">
+      <End Role="puesto" EntitySet="puesto" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__venta__id_planes__3F466844" Association="Self.FK__venta__id_planes__3F466844">
+      <End Role="planes" EntitySet="planes" />
+      <End Role="venta" EntitySet="venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__venta__rut_usuar__3E52440B" Association="Self.FK__venta__rut_usuar__3E52440B">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="venta" EntitySet="venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventaSupl__id_su__44FF419A" Association="Self.FK__ventaSupl__id_su__44FF419A">
+      <End Role="suplemento" EntitySet="suplemento" />
+      <End Role="ventaSuplemento" EntitySet="ventaSuplemento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventaSupl__rut_u__440B1D61" Association="Self.FK__ventaSupl__rut_u__440B1D61">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="ventaSuplemento" EntitySet="ventaSuplemento" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

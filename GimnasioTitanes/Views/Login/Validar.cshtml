@@ -1,0 +1,60 @@
+﻿@model GimnasioTitanes.Models.login
+
+@{
+    ViewBag.Title = "Validar";
+}
+
+<h2>LOGIN</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                Ingresar tu RUT
+            </td>
+            <td>
+                @Html.TextBox("rut")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ingresa Tu Clave
+            </td>
+            <td>
+                @Html.Password("pass")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Ingresar" onclick="validar()" />
+            </td>
+        </tr>
+    </table>
+}
+
+    @section Scripts
+    {
+        @Scripts.Render("~/bundles/jqueryval")
+    } 
+
+<script type="text/javascript">
+    function validar()
+    {
+        var usuario = $("rut").val();
+        var clave = $("pass").val();
+
+        if (usuario == '')
+        {
+            alert('Ingresar tu rut');
+            $("#rut").focus();
+            return false;
+        }
+        if (clave == '') {
+            alert('Ingresa tu clave');
+            $("#pass").focus();
+            return false;
+        }
+        return true;
+    }
+</script>
